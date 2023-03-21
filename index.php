@@ -15,16 +15,24 @@
 
     <?php
     if (isset($_POST['hit_keliling'])) {
-      $sisiA = $_POST['sisiA'];
-      $sisiB = $_POST['sisiB'];
-      $hasil = $sisiA + $sisiB + $sisiA + $sisiB;
-      echo "<h3>Keliling Jajar Genjang : " . $hasil . "</h3>";
+      if ($_POST['sisiA'] == null || $_POST['sisiB']) {
+        echo "<h3 class='error'>Anda harus mengisi input yang diperlukan!</h3>";
+      } else {
+        $sisiA = $_POST['sisiA'];
+        $sisiB = $_POST['sisiB'];
+        $hasil = $sisiA + $sisiB + $sisiA + $sisiB;
+        echo "<h3>Keliling Jajar Genjang : " . $hasil . "</h3>";
+      }
     }
     if (isset($_POST['hit_luas'])) {
-      $alas = $_POST['alas'];
-      $tinggi = $_POST['tinggi'];
-      $hasil = $tinggi * $alas;
-      echo "<h3>Luas Jajar Genjang : " . $hasil . "</h3>";
+      if ($_POST['alas'] == null || $_POST['tinggi']) {
+        echo "<h3 class='error'>Anda harus mengisi input yang diperlukan!</h3>";
+      } else {
+        $alas = $_POST['alas'];
+        $tinggi = $_POST['tinggi'];
+        $hasil = $tinggi * $alas;
+        echo "<h3>Luas Jajar Genjang : " . $hasil . "</h3>";
+      }
     }
     ?>
   </div>
@@ -37,11 +45,11 @@
         <form method="post">
           <tr>
             <td><label for=" sisiA">Sisi A</label></td>
-            <td><input type="number" id="sisiA" name="sisiA"></td>
+            <td><input min="0" type="number" id="sisiA" name="sisiA"></td>
           </tr>
           <tr>
             <td><label for="sisiB">Sisi B</label></td>
-            <td><input type="number" id="sisiB" name="sisiB"></td>
+            <td><input min="0" type="number" id="sisiB" name="sisiB"></td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit" name="hit_keliling">Hitung</button></td>
@@ -55,11 +63,11 @@
         <form method="post">
           <tr>
             <td><label for="alas">Alas</label></td>
-            <td><input type="number" name="alas" id="alas"></td>
+            <td><input min="0" type="number" name="alas" id="alas"></td>
           </tr>
           <tr>
             <td><label for="tinggi">Tinggi</label></td>
-            <td><input type="number" name="tinggi" id="tinggi"></td>
+            <td><input min="0" type="number" name="tinggi" id="tinggi"></td>
           </tr>
           <tr>
             <td colspan="2"><button type="submit" name="hit_luas">Hitung</button></td>

@@ -33,7 +33,9 @@ input {
   padding: 5px;
   font-size: 1.5rem;
 }
-
+.error {
+  color: red;
+}
 .keliling,
 .luas {
   background: wheat;
